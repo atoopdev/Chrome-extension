@@ -1,4 +1,4 @@
-let myLeads = [];
+let myLeads = ["www.awesomelead.com", "www.epiclead.com", "www.greatlead.com"];
 // const prevents variable from being reassigned
 const inputEL = document.getElementById("input-el");
 
@@ -14,3 +14,7 @@ inputBtn.addEventListener("click", function(){
     myLeads.push(inputEL.value);
     console.log(myLeads);
 })
+
+for(let i=0; i<myLeads.length; i++){
+    console.log(myLeads[i]);
+}

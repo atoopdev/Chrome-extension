@@ -14,7 +14,9 @@ inputBtn.addEventListener("click", function () {
 
     // take field input and push into leads array
     myLeads.push(inputEL.value);
-    console.log(myLeads);
+    // clear input field
+    inputEL.value = "";
+    // console.log(myLeads);
     renderLeads();
 })
 
@@ -28,7 +30,7 @@ function renderLeads() {
 
         // one way to output to screen - may be better because easily human readable
         // add list items to variable for improved performance
-        listItems += "<li>" + myLeads[i] + "</li>";
+        listItems += "<li><a href=" + myLeads[i] + " target='blank'>" + myLeads[i] + "</a ></li > ";
 
         // another method - may encounter so good to know
         // create html element

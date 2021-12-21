@@ -22,3 +22,19 @@ button {
   padding: 10px 20px;
   font-size: 1rem;
 }
+
+ul{
+  margin-top: 20px;
+  margin-left:0;
+  padding-left:0;
+  list-style-type: none;
+  
+}
+
+li{
+  margin-top: 5px;
+}
+
+li a{
+  color: #5f9341;
+}

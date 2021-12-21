@@ -1,10 +1,24 @@
-buyBtn = document.getElementById("container");
+// practice template strings/literals
 
-buyBtn.innerHTML = "<button onclick='buy()'>Buy!</button>";
+const recipient = "James";
+const sender = "Amanda";
 
-function buy() {
-    buyBtn.innerHTML += "<p>Thank you for buying!</p>";
-}
+const email = `
+    Hey ${recipient}! 
+    How is it going? 
+    Cheers, ${sender}`;
+
+console.log(email);
+
+
+
+// buyBtn = document.getElementById("container");
+
+// buyBtn.innerHTML = "<button onclick='buy()'>Buy!</button>";
+
+// function buy() {
+//     buyBtn.innerHTML += "<p>Thank you for buying!</p>";
+// }
 
 
 // let boxAction = document.getElementById("box");

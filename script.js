@@ -30,7 +30,14 @@ function renderLeads() {
 
         // one way to output to screen - may be better because easily human readable
         // add list items to variable for improved performance
-        listItems += "<li><a href=" + myLeads[i] + " target='blank'>" + myLeads[i] + "</a ></li > ";
+        // listItems += "<li><a href=" + myLeads[i] + " target='blank'>" + myLeads[i] + "</a ></li > ";
+        listItems += `
+        <li>
+            <a href="${myLeads[i]}" target='blank'>
+                ${myLeads[i]}
+                </a >
+                </li > 
+            `;
 
         // another method - may encounter so good to know
         // create html element

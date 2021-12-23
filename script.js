@@ -7,6 +7,9 @@ const inputEL = document.getElementById("input-el");
 const inputBtn = document.getElementById("input-btn");
 const ulEL = document.getElementById("ul-el");
 
+// local storage
+localStorage.setItem("myLeads", "http://www.google.com/");
+console.log(localStorage.getItem("myLeads"));
 
 
 inputBtn.addEventListener("click", function () {

@@ -1,4 +1,6 @@
-let myLeads = [];
+// store user input
+let myLeads = ["http://www.google.com"];
+
 // const prevents variable from being reassigned
 const inputEL = document.getElementById("input-el");
 
@@ -7,20 +9,39 @@ const inputEL = document.getElementById("input-el");
 const inputBtn = document.getElementById("input-btn");
 const ulEL = document.getElementById("ul-el");
 
-// local storage
-localStorage.setItem("myLeads", "http://www.google.com/");
-console.log(localStorage.getItem("myLeads"));
+// local storage - can only store strings
+// (key, value)
+// localStorage.setItem("myLeads", "http://www.google.com/");
+// console.log(localStorage.getItem("myLeads"));
 
+// save leads from localStorage so are preserved if page refreshed
+let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
+console.log(leadsFromLocalStorage);
+
+// if leadsFromLocalStorage has content, render to screen
+if(leadsFromLocalStorage){
+    myLeads=leadsFromLocalStorage;
+    renderLeads();
+} else{
+    console.log("leadsFromLocalStorage not truthy");
+}
 
 inputBtn.addEventListener("click", function () {
     console.log("Button clicked from event listener.");
-
+    
     // take field input and push into leads array
     myLeads.push(inputEL.value);
+    
+    // pass myLeads array as string
+    localStorage.setItem("myLeads", JSON.stringify(myLeads));
+
     // clear input field
     inputEL.value = "";
     // console.log(myLeads);
     renderLeads();
+
+    console.log("Output from local storage:", localStorage.getItem("myLeads"));
+
 })
 
 // -----------------------------renderLeads()-------------------------------------

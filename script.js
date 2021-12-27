@@ -1,21 +1,18 @@
 // store user input
-let myLeads = ["http://www.google.com"];
+let myLeads = [];
 
 // const prevents variable from being reassigned
+// input field
 const inputEL = document.getElementById("input-el");
-
-// add event listener to Save Input button
-//replaces use of "onclick" in html tags
+// save btn
 const inputBtn = document.getElementById("input-btn");
+// del button
+const deleteBtn = document.getElementById("delete-btn");
+// ul output destination
 const ulEL = document.getElementById("ul-el");
 
-// local storage - can only store strings
-// (key, value)
-// localStorage.setItem("myLeads", "http://www.google.com/");
-// console.log(localStorage.getItem("myLeads"));
-
 // save leads from localStorage so are preserved if page refreshed
-let leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
+const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
 console.log(leadsFromLocalStorage);
 
 // if leadsFromLocalStorage has content, render to screen
@@ -26,6 +23,10 @@ if(leadsFromLocalStorage){
     console.log("leadsFromLocalStorage not truthy");
 }
 
+// --------------------Save Button---------------------------------------------
+
+// add event listener to Save Input button
+//replaces use of "onclick" in html tags
 inputBtn.addEventListener("click", function () {
     console.log("Button clicked from event listener.");
     
@@ -43,6 +44,22 @@ inputBtn.addEventListener("click", function () {
     console.log("Output from local storage:", localStorage.getItem("myLeads"));
 
 })
+
+// -------------------------Delete Button ----------------------------------------
+
+// add event listener to delete button
+deleteBtn.addEventListener("click", function() {
+    console.log("delete button");
+
+    // clear everything
+    localStorage.clear();
+    myLeads = [];
+    renderLeads();
+}
+)
+
+
+
 
 // -----------------------------renderLeads()-------------------------------------
 function renderLeads() {

@@ -6,10 +6,13 @@ let myLeads = [];
 const inputEL = document.getElementById("input-el");
 // save btn
 const inputBtn = document.getElementById("input-btn");
+// save tab button
+const tabBtn = document.getElementById("tab-btn");
 // del button
 const deleteBtn = document.getElementById("delete-btn");
 // ul output destination
 const ulEL = document.getElementById("ul-el");
+
 
 // save leads from localStorage so are preserved if page refreshed
 const leadsFromLocalStorage = JSON.parse(localStorage.getItem("myLeads"));
@@ -70,11 +73,34 @@ inputBtn.addEventListener("click", function () {
 
     // clear input field
     inputEL.value = "";
-    // console.log(leads);
+    
     render(myLeads);
 
     console.log("Output from local storage:", localStorage.getItem("myLeads"));
 
+})
+
+// ----------------------------------- Save Tab Button --------------------------
+tabBtn.addEventListener("click", function() {
+    console.log("Save tab button clicked.");
+
+
+    // grab url for current browser tab - active in current window
+    // returns a tabs variable
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+        // push tab into leads array
+        myLeads.push(tabs[0].url);
+
+        // pass myLeads array as string to local storage
+        localStorage.setItem("myLeads", JSON.stringify(myLeads));
+    
+        // output tab
+        render(myLeads);
+     });
+
+    
+
+    console.log("Output from local storage:", localStorage.getItem("myLeads"));
 })
 
 // -------------------------Delete Button ----------------------------------------

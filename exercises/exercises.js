@@ -1,20 +1,29 @@
-function add(num1, num2){
-    return num1+num2;
+const myarray = [1,2,3];
+
+function getFirst(arr){
+    return arr[0];
 }
 
-sum = add(9,102);
-console.log(sum);
+console.log("Returning first element: ", getFirst(myarray));
 
 
-// function parameters
-const welcomeEL = document.getElementById("welcome-el");
+// function add(num1, num2){
+//     return num1+num2;
+// }
 
-function greetUser(greeting, name){
-    welcomeEL.textContent = `${greeting} ${name}!`;
+// sum = add(9,102);
+// console.log(sum);
 
-}
 
-greetUser("Hello","May");
+// // function parameters
+// const welcomeEL = document.getElementById("welcome-el");
+
+// function greetUser(greeting, name){
+//     welcomeEL.textContent = `${greeting} ${name}!`;
+
+// }
+
+// greetUser("Hello","May");
 
 
 
